@@ -12,6 +12,22 @@ let queries;
 let modifiedUrl;
 let url;
 
+// starting 24 hour timer
+setInterval( () => {
+  let timer;
+  let date = new Date();
+  let hour = 24 - date.getHours();
+  let min = 60 - date.getMinutes();
+  let sec = 60 - date.getSeconds();
+  if((min + '').length === 1){
+    min = '0' + min;
+  }
+  if((sec + '').length === 1){
+    sec = '0' + sec;
+  }
+  timer = `${hour}:${min}:${sec}`;
+})
+
 // receiving the url on current tab from content.js
 chrome.runtime.onMessage.addListener(function(req, sender, sendResponse){
   console.log("background is running");
@@ -36,6 +52,8 @@ chrome.runtime.onMessage.addListener(function(req, sender, sendResponse){
     console.log(modifiedUrl);
   };
 });
+
+
 
 
 

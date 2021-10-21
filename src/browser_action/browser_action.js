@@ -18,6 +18,9 @@ TASKS:
 let totalCount = document.querySelector('#total-count');
 let countBtn = document.querySelector('#count-submit');
 
+// counter for total number of ads in last 24 hrs
+let counter = 0;
+
 chrome.storage.sync.get(['totalAds'], ads => {
   console.log(ads.totalAds);
   console.log(ads.totalAds);
