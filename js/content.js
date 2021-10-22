@@ -1,7 +1,6 @@
 // html elements to turn background color to red
 let mainAdsElemTop = document.querySelector("#tvcap");
 let mainAdsElemBot = document.querySelector('#bottomads');
-let ads = document.querySelectorAll('[aria-label="Ads"]');
 let ads1 = document.querySelector("#atvcap");
 let adsSpan = document.querySelectorAll('.jpu5Q.VqFMTc.p8AiDd')
 
@@ -10,7 +9,6 @@ let dataTextAd = document.querySelectorAll('[data-text-ad="1"]');
 let dataPla = document.querySelector('[data-pla="1"]');
 let topPlayGroupInner = document.querySelector('div.top-pla-group-inner');
 let dataPlaAds = document.querySelectorAll('div.mnr-c.pla-unit');
-
 let totalAds = dataTextAd.length + dataPlaAds.length;
 
 // checking if these elements exists
