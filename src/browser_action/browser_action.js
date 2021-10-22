@@ -33,6 +33,12 @@ chrome.storage.sync.get(['totalAds'], ads => {
   };
 });
 
+
+/***************************************************************************
+DIFFERENT APPROACH ON MODIFYING THE URL BY TYPING SEARCH QUERY IN popup.html 
+AND HAVING background.js OR content.js TO REFRESH THE PAGE WITH MODIFIED URL
+***************************************************************************/
+
 // searchBtn.addEventListener('click', evt => {
 //   evt.preventDefault();
 //   console.log(inputVal.value);
