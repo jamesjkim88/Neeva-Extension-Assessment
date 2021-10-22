@@ -19,8 +19,6 @@ setInterval( () => {
   timer = `${hour}:${min}:${sec}`;
 })
 
-
-
 // receiving the url on current tab from content.js
 chrome.runtime.onMessage.addListener(function(req, sender, sendResponse){
   console.log("background is running");
@@ -30,17 +28,11 @@ chrome.runtime.onMessage.addListener(function(req, sender, sendResponse){
   chrome.storage.sync.set({totalAds: req.totalAds});
 });
 
-
-
-
-
+// getting current tab url and modifying to append ' in 2021' at end of search query
 chrome.tabs.onUpdated.addListener(info => {
   chrome.tabs.query({active: true, currentWindow: true}, tab => {
     url = tab[0].url
     console.log(tab);
-    /*********************************************
-    Modifying current tab url to append ' in 2021'
-    **********************************************/
     // if url exists
     if(url){
       // modifying url to concat ' in 2021'

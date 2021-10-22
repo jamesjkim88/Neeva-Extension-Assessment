@@ -27,8 +27,6 @@ let dataPlaAds = document.querySelectorAll('div.mnr-c.pla-unit');
 
 let totalAds = dataTextAd.length + dataPlaAds.length;
 
-
-
 // checking if these elements exists
 if(mainAdsElemTop || mainAdsElemBot || ads1){
   // changing ad background color to red

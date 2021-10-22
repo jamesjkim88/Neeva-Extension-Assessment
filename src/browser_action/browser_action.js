@@ -18,8 +18,6 @@ let countBtn = document.querySelector('#count-submit');
 let inputVal = document.getElementById('input-val');
 let searchBtn = document.querySelector('#search');
 
-
-
 // counter for total number of ads in last 24 hrs
 let counter = 0;
 
