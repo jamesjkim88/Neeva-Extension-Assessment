@@ -28,35 +28,65 @@ setInterval( () => {
   timer = `${hour}:${min}:${sec}`;
 })
 
+
+
 // receiving the url on current tab from content.js
 chrome.runtime.onMessage.addListener(function(req, sender, sendResponse){
   console.log("background is running");
-  url = req.url;
 
   // storing total number of ads seen on current tab onto storage
   // to render total number of ads on extension popup
   chrome.storage.sync.set({totalAds: req.totalAds});
-
-  /*********************************************
-  Modifying current tab url to append ' in 2021'
-  **********************************************/
-  // if req.url exists
-  if(req.url){
-    // setting up variables
-    baseUrl = url.slice(0, url.indexOf('?'));
-    queries = url.slice(url.indexOf('?')).split('&');
-    queries[0] = queries[0] + "+in+2021"
-    queries[1] = queries[1] + "+in+2021"
-    queries = queries.join('&');
-    modifiedUrl = baseUrl + queries;
-    console.log(modifiedUrl);
-  };
 });
 
 
 
+// listening for any changes on current tab
+// chrome.tabs.onActivated.addListener(activeInfo => {
+//   //getting current tab url
+//   chrome.tabs.get(activeInfo.tabId, tab => {
+//     url = tab.url
 
+//     /*********************************************
+//     Modifying current tab url to append ' in 2021'
+//     **********************************************/
+//     // if url exists
+//     if(url){
+//       // modifying url to concat ' in 2021'
+//       baseUrl = url.slice(0, url.indexOf('?'));
+//       queries = url.slice(url.indexOf('?')).split('&');
+//       queries[0] = queries[0] + "+in+2021";
+//       queries[1] = queries[1] + "+in+2021";
+//       queries = queries.join('&');
+//       modifiedUrl = baseUrl + queries;
+//       console.log(modifiedUrl);
+//      chrome.storage.sync.set({modifiedUrl});
+//     };
+//   });
+// });
 
+chrome.tabs.onUpdated.addListener(info => {
+  chrome.tabs.query({active: true, currentWindow: true}, tab => {
+    url = tab[0].url
+    console.log(tab);
+    /*********************************************
+    Modifying current tab url to append ' in 2021'
+    **********************************************/
+    // if url exists
+    if(url){
+      // modifying url to concat ' in 2021'
+      baseUrl = url.slice(0, url.indexOf('?'));
+      queries = url.slice(url.indexOf('?')).split('&');
+      queries[0] = queries[0] + "+in+2021";
+      queries[1] = queries[1] + "+in+2021";
+      queries = queries.join('&');
+      modifiedUrl = baseUrl + queries;
+      console.log(modifiedUrl);
+      chrome.storage.sync.set({modifiedUrl});
+      //chrome.tabs.update(tab.id, {url: modifiedUrl})
+    };
+  })
+})
 
 
 
@@ -74,25 +104,7 @@ chrome.runtime.onMessage.addListener(function(req, sender, sendResponse){
 
 
 
-// listening for any changes on current tab
-// chrome.tabs.onActivated.addListener(activeInfo => {
-//   //getting current tab url
-//   chrome.tabs.get(activeInfo.tabId, tab => {
-//     url = tab.url
-//     if(url){
-//       // modifying url to concat ' in 2021'
-//       baseUrl = url.slice(0, url.indexOf('?'));
-//       queries = url.slice(url.indexOf('?')).split('&');
-//       queries[0] = queries[0] + "+in+2021";
-//       queries[1] = queries[1] + "+in+2021";
-//       queries = queries.join('&');
-//       modifiedUrl = baseUrl + queries;
-//       chrome.tabs.update(tab.id, {url: modifiedUrl})
-//     }
-//   })
 
-
-// })
 
 // chrome.tabs.onUpdated.addListener((tabId, change, tab) => {
 //   console.log(tab);

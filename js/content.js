@@ -28,17 +28,30 @@ let dataPlaAds = document.querySelectorAll('div.mnr-c.pla-unit');
 let totalAds = dataTextAd.length + dataPlaAds.length;
 
 // changing bacground color of ads to red
+
 if(mainAdsElemTop || mainAdsElemBot || ads1){
-  mainAdsElemTop.style.background = "red";
   mainAdsElemBot.style.background = "red";
   ads1.style.background = "red";
   adsSpan.forEach(e => {
     e.style.background = "red";
-  });
-};
+  })
+}
 
-// sending current window.location.href to background.js
+// able to append ' in 2021' into search queries
+// but it appends for all search queries on chrome :[
+chrome.storage.sync.get(['modifiedUrl'], url => {
+  if(window.localStorage){
+    if(!localStorage.getItem('firstLoad')){
+      localStorage['firstLoad'] = true;
+      window.location.href = url.modifiedUrl;
+    }else{
+      localStorage.removeItem('firstLoad');
+    }
+  }
+});
 
-chrome.runtime.sendMessage({url, totalAds}, (resp) => {
+// sending messages to background.js
+chrome.runtime.sendMessage({totalAds}, (resp) => {
   console.log("message sent");
 });
+
