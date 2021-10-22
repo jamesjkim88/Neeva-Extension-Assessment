@@ -13,6 +13,7 @@ TASKS:
       - HTML elements have been created
 
 */
+
 let totalCount = document.querySelector('#total-count');
 let countBtn = document.querySelector('#count-submit');
 let inputVal = document.getElementById('input-val');

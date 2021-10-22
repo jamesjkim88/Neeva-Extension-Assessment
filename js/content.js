@@ -1,17 +1,3 @@
-/*
-
-TASKS:
-
-  - make whatever function comptaible for executeScript to background.js can run it
-
-  - Send messages to browser_action.js sending...
-    - total number of ads
-
-*/
-
-
-let url = window.location.href;
-
 // html elements to turn background color to red
 let mainAdsElemTop = document.querySelector("#tvcap");
 let mainAdsElemBot = document.querySelector('#bottomads');
