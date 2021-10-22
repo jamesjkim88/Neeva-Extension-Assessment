@@ -85,7 +85,7 @@ OLD CODE AND DIFFERENT APPROACH ON MODIFYING CURRENT TAB URL TO APPEND ' in 2021
 //       queries = queries.join('&');
 //       modifiedUrl = baseUrl + queries;
 //       console.log(modifiedUrl);
-//      chrome.storage.sync.set({modifiedUrl});
+//       //chrome.storage.sync.set({modifiedUrl});
 //     };
 //   });
 // });
