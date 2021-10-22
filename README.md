@@ -1,4 +1,9 @@
-# Neeva Chrome Extension Assessement 
+# Neeva Chrome Extension Assessement
+
+### Tech Stack
+  - Extension built by [Extensionizr]( https://extensionizr.com/).
+  - Coded in Vanilla JavaScript, CSS3, and HTML5 semantics.
+  - Old code and approach is commented out for reference.
 
 ### How to run
   - Clone/download the file.
@@ -23,7 +28,8 @@
     - Update current tab query search to append ' in 2021' right after the original search has been made.
   - Currently stumped on updating the url to append ' in 2021' in ths search query.
 
-### Code
-  - Extension built by [Extensionizr]( https://extensionizr.com/).
-  - Coded in Vanilla JavaScript, CSS3, and HTML5 semantics.
-  - Old code and approach is commented out for reference.
+### Tasks and features
+  - Making current page url modification more efficient.
+  - Able to render total number of ads on that specific page/tab after using the extension on multiple pages/tabs.
+  - Ability to count total number of ads in 24 hours.
+
