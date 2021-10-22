@@ -20,7 +20,7 @@
       - You will see total number of Ads.
 
 ### Approach
-  - Required brainstorming sessions to breakdown what the app is doing.
+  - Required brainstorming sessions to breakdown what the extension is doing.
   - Initial concept and idea was to make the extension "constantly" running.
     - Collect current tab url when page loads.
     - Instantly change background color of ads to red when ads are detected.
